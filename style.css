@@ -1,3 +1,11 @@
+/* TODO:
+    > Implement carat pseudo-element
+    > Implement page-wide minimum-width (and determine what that should be)
+    > Implement collapsing navbar (hamburger menu) w/ media query
+    > Double-check sizing/position units (px em rem etc)
+    > Double-check sizing versus PSDs
+*/
+
 /* Normal */
 @font-face {
     font-family: "Montserrat";
@@ -149,16 +157,23 @@ footer {
 }
 
 
-.flex-container {
+.flex-container-a, .flex-container-b {
     max-width: 80rem;
-
-    /* Top 140px (header + navbar), l/r auto [centered], 5rem for space between end of content and footer*/
-    margin: 140px auto 5rem;
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 70px;
+}
+
+.flex-container-a {
+    gap: 150px;
+    /* Top 140px (header + navbar), l/r auto [centered], 70px before cards */
+    /* TODO: Testing adding 190px for closer-to-PSD margins; og 140px, new 330px*/
+    margin: 300px auto 100px;
+}
+
+.flex-container-b {
+    margin: 70px auto;
 }
 
 
@@ -224,28 +239,42 @@ footer {
     text-decoration: underline;
 }
 
-/* TODO: Add a stacking sorta wrap */
-
 /* PSD has a 5px border visible for drop shadow, may be a placement error, TODO describe how to fix, and does mobile PSD have it as well? */
 .card-container {
-    display: flex;
+    max-width: 1980px;
 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    margin: 0 auto;
+
+    /* TODO: Look into how to get box-shadow (or border?) auto-resizing */
     border-bottom: 5px solid white;
     box-shadow: 0 20px 27px -27px;
 }
 
 .card {
+    max-width: 862px;
+    /* TODO: Look into this; browser compatibility is very recent (e.g. no Firefox for Android <4.3*/
+    aspect-ratio: 3/2;
+
+    padding: 4rem;
+
     font-size: 24px;
     color: white;
     text-align: center;
 
     display: flex;
+    flex-basis: 574px;
+    flex-grow: 1;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 2rem;
 
     background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .card-members {
@@ -257,8 +286,8 @@ footer {
 }
 
 .card-icon {
-    width: 92px;
-    height: auto;
+    width: 160px;
+    height: 120px;
 }
 
 .card-title-primary {
@@ -285,8 +314,11 @@ footer {
     gap: 2rem;
 }
 
+/* TODO: Look into wrapping; as-is, the underline clips over the text */
 .supporter-header-primary {
     font-size: 36px;
+    min-width: 26em;
+    text-align: center;
 }
 
 .supporter-header-secondary {
