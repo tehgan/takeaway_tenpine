@@ -1,0 +1,102 @@
+<!-- TODO:
+        Currently formatting as 'raw' HTML/CSS
+        Bootstrap and jQuery are a requirement, so once this is feature-complete I should adapt this to them-->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canadian Animal Rescue Association | Home</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <span>Supporting Rescues and Saving Lives since 2023.</span>
+        <!-- TODO: Look into class naming convention -->
+        <!-- TODO: Center, consider vectors (sharp at any res, but file size would be higher by an order of magnitude;
+              fine for most, but terrible UX for slow connections (rural, 'far-away cell tower' wifi) -->
+        <!-- TODO: Check alt tags -->
+        <a href="#"><img src="assets/img/social-facebook-17.png" alt="Button to CARA Facebook page"></a>
+        <a href="#"><img src="assets/img/social-instagram-17.png" alt="Button to CARA Instagram page"></a>
+    </header>
+
+    <div class="navbar">
+        <!-- Extracted from PSD and touched up, I'd imagine it's best to use an SVG/vector graphic -->
+        <img src="assets/img/logo-navbar.png" alt="CARA logo">
+        <span>ABOUT US</span>
+        <span>MEMBERSHIP</span>
+        <span>MEMBER SUPPORT</span>
+        <span>MEMBERS</span>
+        <span>CONTACT</span>
+        <!-- TODO: Double-check validity of heart unicode (cross-ref w/ PSD) -->
+        <button>DONATE ♡</button>
+    </div>
+
+    <div class="content">
+        <!-- TODO: Refactor all names to be more descriptive -->
+        <div class="container-a">
+            <p><b>SUPPORTING</b> RESCUES. <b>SAVING</b> LIVES.</p>
+            <p>We are the voice for Canada's animal rescue organizations.</p>
+            <div class="container-a-buttons">
+                <button class="button-learn">LEARN MORE</button>
+                <button class="button-join">JOIN CARA</button>
+            </div>
+        </div>
+
+        <div class="container-b">
+            <p>ADVANCING ANIMAL RESCUE, <span class="highlight">TOGETHER.</span></p>
+            <p>CARA provides leadership and communication between all areas of animal
+                rescue in Canada through practice standards, monitoring, resources, training,
+                and advocacy to promote the highest level of care within the sector.</p>
+            <!-- TODO: 'FAQs' text heavier/bolder than other underline text -->
+            <p class="underline-bold">GET THE FAQs</p>
+        </div>
+
+        <!-- Cards (members, grants) -->
+        <div class="container-c">
+            <div class="card card-members">
+                <!-- TODO icon -->
+                <div class="card-title">
+                    <p class="card-title-primary">CARA MEMBERS</p>
+                    <p class="card-title-secondary">AN EXTRAORDINARY AND DIVERSE COMMUNITY</p>
+                </div>
+
+                <p>Together, CARA’s members exemplify the heart and grit of
+                    Canada’s animal rescue community, united in their commitment to
+                    advancing care, compassion, and opportunity for every animal in need.</p>
+                <p class="underline-bold">VIEW OUR MEMBERS</p>
+            </div>
+            <div class="card card-grants">
+                <!-- TODO icon -->
+                <div class="card-title">
+                    <p class="card-title-primary">CARA GRANTS</p>
+                    <p class="card-title-secondary">A FORCE BEHIND IMPACTFUL ANIMAL WELFARE INITIATIVES</p>
+                </div>
+                <p>By providing essential funding to groups, and community programs,
+                    we help expand life saving services, improve animal care standards, and
+                    foster innovative solutions to emerging challenges. </p>
+                <p class="underline-bold">APPLY FOR A GRANT</p>
+            </div>
+        </div>
+
+        <div class="container-d">
+            <p>BIG THANKS TO OUR <span class="underline-marker">WONDERFUL</span> SUPPORTERS.</p>
+            <p>Shoutout to the folks who help us help the animals!</p>
+            <div class="sponsors">
+                <img src="assets/img/sponsors/placeholder-01.png" alt="Sponsor A">
+                <img src="assets/img/sponsors/placeholder-02.png" alt="Sponsor B">
+                <img src="assets/img/sponsors/placeholder-03.png" alt="Sponsor C">
+                <img src="assets/img/sponsors/placeholder-04.png" alt="Sponsor D">
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <span>&copy; 2026 | Canadian Animal Rescue Association</span>
+        <span>Website by Tenpine</span>
+    </footer>
+
+</body>
+</html>
