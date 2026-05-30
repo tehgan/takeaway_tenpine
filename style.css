@@ -30,15 +30,6 @@ a {
     text-decoration: none;
 }
 
-a:hover {
-    color: #b81d21;
-    text-decoration: underline;
-    text-decoration-thickness: 0.2rem;
-    text-underline-offset: 0.3rem;
-}
-
-
-
 button {
     background-color: #202020;
 
@@ -140,6 +131,13 @@ footer {
     align-items: center;
     /* TODO: Double-check gap; measured 45px or 5em in PSD */
     gap: 3rem;
+}
+
+.navbar a:hover {
+    color: #b81d21;
+    text-decoration: underline;
+    text-decoration-thickness: 0.2rem;
+    text-underline-offset: 0.3rem;
 }
 
 .navbar-button-donate {
