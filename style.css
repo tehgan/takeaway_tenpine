@@ -109,20 +109,24 @@ footer {
 }
 
 
-.flex-container {
-    max-width: 80rem;
+.navbar-container {
+    height: 113px;
+    width: 100%;
 
-    margin: 0 auto 5rem;
+    position: absolute;
+    top: 27px;
+    z-index: 100;
 
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 70px;
+    justify-content: center;
+
+    background-color: white;
+    box-shadow: 0 20px 27px -27px;
 }
 
-
-.navbar {
-    height: 113px;
+.navbar-content {
+    width: 100%;
+    max-width: 80rem;
 
     font-weight: bold;
     font-size: 15px;
@@ -133,7 +137,7 @@ footer {
     gap: 3rem;
 }
 
-.navbar a:hover {
+.navbar-content a:hover {
     color: #b81d21;
     text-decoration: underline;
     text-decoration-thickness: 0.2rem;
@@ -142,6 +146,19 @@ footer {
 
 .navbar-button-donate {
     background-color: #cd1120;
+}
+
+
+.flex-container {
+    max-width: 80rem;
+
+    /* Top 140px (header + navbar), l/r auto [centered], 5rem for space between end of content and footer*/
+    margin: 140px auto 5rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 70px;
 }
 
 
@@ -280,4 +297,9 @@ footer {
     display: flex;
     justify-content: space-between;
     gap: 3rem;
+}
+
+.supporter-logo-container img {
+    max-height: 150px;
+    width: auto;
 }
