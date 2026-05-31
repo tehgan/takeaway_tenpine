@@ -1,5 +1,6 @@
 /* TODO:
-    > Implement page-wide minimum-width (and determine what that should be)
+    > Implement page-wide minimum-width (and determine what that should be) [mobile PSD is 480w]
+        So assuming 480w, at 9:16 [old phone AR] that'd be 853x480 (853.33 rounded down)
     > Implement collapsing navbar (hamburger menu) w/ media query
     > Double-check sizing/position units (px em rem etc)
     > Double-check sizing versus PSDs
@@ -144,7 +145,7 @@ footer {
 }
 
 /* Toggled in JS via an Intersection Observer, based on <header> visibility */
-.sticky-navbar {
+.navbar-stickifier {
     position: fixed;
     top: 0;
 }
