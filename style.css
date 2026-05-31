@@ -143,6 +143,12 @@ footer {
     gap: 3rem;
 }
 
+/* Toggled in JS via an Intersection Observer, based on <header> visibility */
+.sticky-navbar {
+    position: fixed;
+    top: 0;
+}
+
 .navbar-content a:hover {
     color: #b81d21;
     text-decoration: underline;

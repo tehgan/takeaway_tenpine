@@ -1,20 +1,9 @@
-// https://stackoverflow.com/a/1216130
-// Posted by Christian C. Salvadó, modified by community. See post 'Timeline' for change history
-// Retrieved 2026-05-30, License - CC BY-SA 4.0
+// Sticky navbar
+// https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#overview
+// TODO: Profile performance versus 'old-fashioned' way (scroll events)
+const HEADER = document.querySelector("header");
+const OBSERVER = new IntersectionObserver(((entries) => {
+    $(".navbar-container").toggleClass("sticky-navbar", !entries[0].isIntersecting);
+}));
 
-// Sticky navbar function
-// TODO: Look into Firefox ESR warning
-/* This site appears to use a scroll-linked positioning effect.
- *  This may not work well with asynchronous panning;
- *  see https://firefox-source-docs.mozilla.org/performance/scroll-linked_effects.html
- *  for further details and to join the discussion on related tools and features! */
-$(window).scroll(function(){
-    const $navbar = $('.navbar-container');
-    let isPositionFixed = ($navbar.css('position') === 'fixed');
-    if ($(this).scrollTop() > 27 && !isPositionFixed){
-        $navbar.css({'position': 'fixed', 'top': '0px'});
-    }
-    if ($(this).scrollTop() <= 27 && isPositionFixed){
-        $navbar.css({'position': 'absolute', 'top': '27px'});
-    }
-});
+OBSERVER.observe(HEADER);
