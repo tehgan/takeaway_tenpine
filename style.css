@@ -1,5 +1,4 @@
 /* TODO:
-    > Implement carat pseudo-element
     > Implement page-wide minimum-width (and determine what that should be)
     > Implement collapsing navbar (hamburger menu) w/ media query
     > Double-check sizing/position units (px em rem etc)
@@ -50,12 +49,10 @@ button {
     padding: 0.5em 1.5em;
 }
 
-/* TODO: Refactor, get rid of unnecessary code*/
 .underline-stylised {
-    font-weight: bold;
-
     position: relative;
-    display: inline-block;
+
+    font-weight: bold;
 }
 
 .underline-stylised::after {
@@ -63,10 +60,11 @@ button {
     position: absolute;
     inset: auto 0 -18px 0;
     height: 18px;
+
     background-image: url("assets/img/underline.png");
     background-repeat: no-repeat;
+    /* Stretch to width of text */
     background-size: 100% 100%;
-    pointer-events: none;
 }
 
 
@@ -233,11 +231,27 @@ footer {
     font-size: 36px;
 }
 
-.intro-link {
+.intro-link, .card-link {
+    position: relative;
+
     color: white;
     font-weight: bold;
     text-decoration: underline;
 }
+
+.intro-link::after, .card-link::after {
+    position: absolute;
+    margin-left: 0.5em;
+
+    content: "\27A4";
+
+    text-decoration: none;
+}
+
+.intro-link::after {
+    color: #b81d21;
+}
+
 
 /* PSD has a 5px border visible for drop shadow, may be a placement error, TODO describe how to fix, and does mobile PSD have it as well? */
 .card-container {
@@ -299,13 +313,6 @@ footer {
     font-style: italic;
 }
 
-/* TODO: Add carats, consider wrapping shared properties into 'link' class w/ intro-link */
-.card-link {
-    color: white;
-    font-weight: bold;
-    text-decoration: underline;
-}
-
 
 .supporter-container {
     display: flex;
@@ -314,7 +321,7 @@ footer {
     gap: 2rem;
 }
 
-/* TODO: Look into wrapping; as-is, the underline clips over the text */
+/* TODO: Look into text-wrapping and overflow/clipping */
 .supporter-header-primary {
     font-size: 36px;
     min-width: 26em;

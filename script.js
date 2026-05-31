@@ -1,6 +1,13 @@
-// Source - https://stackoverflow.com/a/1216130
+// https://stackoverflow.com/a/1216130
 // Posted by Christian C. Salvadó, modified by community. See post 'Timeline' for change history
 // Retrieved 2026-05-30, License - CC BY-SA 4.0
+
+// Sticky navbar function
+// TODO: Look into Firefox ESR warning
+/* This site appears to use a scroll-linked positioning effect.
+ *  This may not work well with asynchronous panning;
+ *  see https://firefox-source-docs.mozilla.org/performance/scroll-linked_effects.html
+ *  for further details and to join the discussion on related tools and features! */
 $(window).scroll(function(){
     const $navbar = $('.navbar-container');
     let isPositionFixed = ($navbar.css('position') === 'fixed');
