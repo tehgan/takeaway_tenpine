@@ -1,9 +1,6 @@
 /* TODO:
-    > Implement page-wide minimum-width (and determine what that should be) [mobile PSD is 480w]
-        So assuming 480w, at 9:16 [old phone AR] that'd be 853x480 (853.33 rounded down)
-    > Implement collapsing navbar (hamburger menu) w/ media query
     > Double-check sizing/position units (px em rem etc)
-    > Double-check sizing versus PSDs
+    > Ensure CSS is consistent
 */
 
 /* Normal */
@@ -25,12 +22,25 @@
     font-display: swap;
 }
 
-* {
-    /* TODO: Consider font size (24px measured, browsers may scale it though) */
-    font-family: "Montserrat", sans-serif;
 
+@media (max-width: 1280px) {
+    .footer-content {
+        /* TODO look into alternative for smoother transition; as-is, space-around is needed for wrapping to be centered */
+        justify-content: space-around !important;
+        column-gap: 3em;
+    }
+}
+
+* {
     /* Override default margins put in place by certain browser stylesheets */
     margin: 0;
+
+    /* TODO: Consider font size (24px measured, browsers may scale it though) */
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    min-width: 480px;
 }
 
 a {
@@ -52,7 +62,6 @@ button {
 
 .underline-stylised {
     position: relative;
-
     font-weight: bold;
 }
 
@@ -69,6 +78,9 @@ button {
 }
 
 
+/*************************
+ *    HEADER & FOOTER    *
+ *************************/
 header, footer {
     /* TODO: Add min-width property to prevent underflow/clipping */
     width: 100%;
@@ -91,7 +103,6 @@ header, footer {
 
 header {
     height: 27px;
-
     background-color: #b81d21;
 }
 
@@ -108,14 +119,20 @@ footer {
 }
 
 .footer-content {
+    text-align: center;
     font-weight: bold;
-    padding: 1rem 0;
-    justify-content: space-between;
 
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    padding: 1rem 0;
     margin: auto;
 }
 
 
+/****************
+ *    NAVBAR    *
+ ****************/
 .navbar-container {
     height: 113px;
     width: 100%;
@@ -138,10 +155,13 @@ footer {
     font-weight: bold;
     font-size: 15px;
 
+    /* Prevent link text (ABOUT US etc.) from wrapping */
+    white-space: nowrap;
+
     display: flex;
     align-items: center;
-    /* TODO: Double-check gap; measured 45px or 5em in PSD */
-    gap: 3rem;
+    justify-content: space-between;
+    gap: 2rem;
 }
 
 /* Toggled in JS via an Intersection Observer, based on <header> visibility */
@@ -162,6 +182,10 @@ footer {
 }
 
 
+/***********************************
+ *         FLEX CONTAINERS         *
+ * (A: hero & intro B: supporters) *
+ ***********************************/
 .flex-container-a, .flex-container-b {
     max-width: 80rem;
 
@@ -182,6 +206,9 @@ footer {
 }
 
 
+/***************
+ *    HERO     *
+ ***************/
 .hero-bg {
     position: absolute;
     z-index: -1;
@@ -218,6 +245,9 @@ footer {
 }
 
 
+/***************
+ *    INTRO    *
+ ***************/
 .intro-container {
     color: white;
     font-size: 24px;
@@ -230,6 +260,8 @@ footer {
     gap: 2em;
 
     padding: 4rem 12rem;
+    /* Prevent all-screen on mobile; TODO consider leaving out */
+/*    margin: 0 1rem;*/
 
     border-radius: 24px;
 }
@@ -260,6 +292,9 @@ footer {
 }
 
 
+/***************
+ *    CARDS    *
+ ***************/
 /* PSD has a 5px border visible for drop shadow, may be a placement error, TODO describe how to fix, and does mobile PSD have it as well? */
 .card-container {
     max-width: 1980px;
@@ -309,6 +344,8 @@ footer {
 .card-icon {
     width: 160px;
     height: 120px;
+
+    pointer-events: none;
 }
 
 .card-title-primary {
@@ -321,6 +358,9 @@ footer {
 }
 
 
+/********************
+ *    SUPPORTERS    *
+ ********************/
 .supporter-container {
     display: flex;
     flex-direction: column;
@@ -328,19 +368,23 @@ footer {
     gap: 2rem;
 }
 
-/* TODO: Look into text-wrapping and overflow/clipping */
 .supporter-header-primary {
-    font-size: 36px;
     min-width: 26em;
+
+    font-size: 36px;
     text-align: center;
+    /* Prevents underline pseudo-element from overlapping other text */
+    line-height: 1.5em;
 }
 
 .supporter-header-secondary {
     font-size: 24px;
+    text-align: center;
 }
 
 .supporter-logo-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     gap: 3rem;
 }
