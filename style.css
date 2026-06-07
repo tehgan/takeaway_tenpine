@@ -115,6 +115,7 @@ footer {
     font-weight: bold;
 
     justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
     column-gap: 3em;
 
@@ -122,9 +123,8 @@ footer {
     margin: auto;
 }
 
-/* TODO: px or rem? */
-/* Manual wrap to ensure center-aligned footer text; is left-aligned otherwise */
-@media (max-width: 600px) {
+/* calculated from 600px/16px [37.5] and rounded down  */
+@media (max-width: 37rem) {
     .footer-content {
         flex-direction: column;
     }
