@@ -122,10 +122,11 @@ footer {
     margin: auto;
 }
 
-/* TODO: Find exact media query needed for wrap centering */
-@media (max-width: 70rem) {
-    .footer-content span {
-        flex-grow: 1;
+/* TODO: px or rem? */
+/* Manual wrap to ensure center-aligned footer text; is left-aligned otherwise */
+@media (max-width: 600px) {
+    .footer-content {
+        flex-direction: column;
     }
 }
 
