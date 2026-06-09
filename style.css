@@ -130,7 +130,7 @@ footer {
 }
 
 /* Horizontally-centered wrapping */
-@media (max-width: 37rem) {
+@media (max-width: 40rem) {
     .footer-content {
         flex-direction: column;
     }
@@ -211,16 +211,15 @@ footer {
     align-items: center;
     gap: 8rem;
 
-    /* Top 8.8rem (header + navbar) + 8rem (gap), l/r auto [centered], 4.5rem (72px) before cards */
-    /* TODO: Consider overhaul for percentage (or similar); mobile margin is much smaller */
-    margin: 16.8rem auto 4.5rem;
+    /* Top 8.8rem (header + navbar) + 8rem (gap), l/r auto [centered], 2rem [32px] before cards */
+    margin: 16.8rem auto 2rem;
 }
 
 
 /**************
  *    HERO    *
  **************/
-/* TODO: Consider debugging/fixing left clipping if under min-width */
+/* TODO: Left side of image clips if under min-width (Firefox ESR) */
 .hero-bg-container {
     width: 100vw;
     height: auto;
