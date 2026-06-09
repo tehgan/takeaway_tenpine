@@ -44,14 +44,14 @@ a {
     text-decoration: none;
 }
 
-button {
+.button-link {
     background-color: #202020;
 
     color: white;
     font-weight: bold;
 
     border-style: none;
-    border-radius: 3px;
+    border-radius: 5px;
 
     padding: 0.5em 1.5em;
 }
@@ -134,9 +134,9 @@ footer {
 }
 
 
-/****************
- *    NAVBAR    *
- ****************/
+/*****************
+ *     NAVBAR    *
+ *****************/
 .navbar-container {
     /* CARA logo 113px tall, 113/16 = 7.06, rounded down */
     height: 7rem;
@@ -146,6 +146,9 @@ footer {
     /* Header height, to offset navbar */
     top: 1.8rem;
     z-index: 100;
+    /* Hacky usability solution in the absence of a hamburger menu;
+        prevents horizontal on narrow screens, instead allowing the navbar to be scrolled */
+    overflow: auto;
 
     display: flex;
     justify-content: center;
@@ -167,10 +170,14 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 2rem;
+    gap: 1rem;
 }
 
-.navbar-content a:hover {
+.navbar-link {
+    padding: 0.5rem;
+}
+
+.navbar-link:hover {
     color: #b81d21;
     text-decoration: underline;
     text-decoration-thickness: 0.2rem;
@@ -185,6 +192,7 @@ footer {
 
 .navbar-button-donate {
     background-color: #cd1120;
+    padding: 0.3em 1.2em;
 }
 
 
@@ -416,7 +424,6 @@ footer {
     text-align: center;
 }
 
-/* TODO: Center-align at narrow widths */
 .supporter-logo-container {
     display: flex;
     flex-wrap: wrap;
