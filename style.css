@@ -39,6 +39,10 @@ body {
     --fs-md: 1.5rem;
     --fs-sm: 1rem;
 
+    /* Element sizes */
+    --el-height-header: 1.8rem;
+    --el-height-navbar: 7rem;
+
     font-family: "Montserrat", sans-serif;
 
     min-width: 320px;
@@ -54,6 +58,8 @@ a {
 
     color: white;
     font-weight: bold;
+    /* In case of wrapping at really narrow widths (e.g. 320px) */
+    text-align: center;
 
     border-style: none;
     border-radius: 5px;
@@ -101,7 +107,7 @@ header, footer {
 }
 
 header {
-    height: 1.8rem;
+    height: var(--el-height-header);
     background-color: #b81d21;
 }
 
@@ -132,6 +138,7 @@ footer {
     align-items: center;
     flex-wrap: wrap;
     column-gap: 3em;
+    row-gap: 1em;
 
     padding: 1rem 1rem;
     margin: auto;
@@ -145,17 +152,17 @@ footer {
 }
 
 
-/*****************
- *     NAVBAR    *
- *****************/
+/****************
+ *    NAVBAR    *
+ ****************/
 .navbar-container {
     /* CARA logo 113px tall, 113/16 = 7.06, rounded down */
-    height: 7rem;
+    height: var(--el-height-navbar);
     width: 100%;
 
     position: absolute;
     /* Header height, to offset navbar */
-    top: 1.8rem;
+    top: var(--el-height-header);
     z-index: 100;
     /* HACK: usability solution in the absence of a hamburger menu;
         prevents horizontal on narrow screens, instead allowing the navbar to be scrolled */
@@ -219,8 +226,8 @@ footer {
     align-items: center;
     gap: 8rem;
 
-    /* Top 8.8rem (header + navbar) + 8rem (gap), l/r auto [centered], 2rem [32px] before cards */
-    margin: 16.8rem auto 2rem;
+    /* Top = header + navbar + gap, l/r = auto [centered], bottom = 2rem [32px, before cards] */
+    margin: calc(var(--el-height-header) + var(--el-height-navbar) + 8rem) auto 2rem;
 }
 
 
@@ -234,8 +241,7 @@ footer {
 
     position: absolute;
     z-index: -1;
-    /* 1.8rem header + 7rem navbar */
-    top: 8.8rem;
+    top: calc(var(--el-height-header) + var(--el-height-navbar));
     overflow: hidden;
 
     /* Centres bg-hero if it overflowed */
@@ -296,22 +302,10 @@ footer {
     border-radius: 24px;
 }
 
-/* Scaling breakpoints */
+/* Add margin only when needed */
 @media (max-width: 76rem) {
     .intro-container {
         margin: 0 1rem;
-    }
-}
-
-@media (max-width: 64rem) {
-    .intro-container {
-        padding: 4rem 8rem;
-    }
-}
-
-@media (max-width: 50rem) {
-    .intro-container {
-        padding: 4rem 4rem;
     }
 }
 
@@ -335,6 +329,7 @@ footer {
     position: absolute;
     margin-left: 0.5em;
 
+    /* CSS arrowhead code */
     content: "\27A4";
 
     text-decoration: none;
@@ -383,7 +378,7 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
+    gap: 2rem;
 
     background-repeat: no-repeat;
     background-size: cover;
@@ -451,4 +446,34 @@ footer {
 .supporter-logo-container img {
     max-height: 150px;
     width: auto;
+}
+
+
+/********************
+ *    RESPONSIVE    *
+ *  MEDIA  QUERIES  *
+ ********************/
+/* Mobile (portrait) */
+@media (max-width: 480px) {
+    body {
+        /* LG: 27px, MD: 21px, SM: 13px (based sizing off mobile PSD) */
+        --fs-lg: 1.6875rem;
+        --ls-md: 1.3125rem;
+        --fs-sm: 0.8125rem;
+
+        /* In case of wrapping */
+        --el-height-header: 2rem;
+    }
+
+    .hero-container {
+        margin-left: 1rem;
+    }
+
+    .intro-container {
+        padding: 4rem 2rem;
+    }
+
+    .card {
+        padding: 4rem 2rem;
+    }
 }
