@@ -1,7 +1,6 @@
-/* TODO:
-    > Convert 'px' to 'rem' where need be (likely widths/heights)
-*/
-
+/***************
+/*    FONTS    *
+ ***************/
 /* Normal */
 @font-face {
     font-family: "Montserrat";
@@ -22,6 +21,9 @@
 }
 
 
+/**************************
+ *    GENERAL ELEMENTS    *
+ **************************/
 /* The wildcard/universal selector doesn't take into account pseudo-elements so they must be specified explicitly */
 *, *:after {
     /* Override default margins put in place by certain browser stylesheets */
@@ -105,10 +107,16 @@ header {
 
 .header-content {
     justify-content: end;
-    gap: 0.5rem;
+    gap: 0.7rem;
+    align-items: center;
 
     /* Vertical centering, right margin to account for scroll bar */
     margin: auto 1rem auto auto;
+}
+
+/* Scale and centre social media widgets with text */
+.header-social, .header-social img {
+    height: 1em;
 }
 
 footer {
@@ -317,6 +325,10 @@ footer {
     color: white;
     font-weight: bold;
     text-decoration: underline;
+}
+
+.intro-link {
+    font-weight: 900;
 }
 
 .intro-link::after, .card-link::after {
