@@ -13,32 +13,31 @@
     <header>
         <div class="header-content">
             <span>Supporting Rescues and Saving Lives since 2023.</span>
-            <!-- TODO: Look into class naming convention -->
-            <!-- TODO: Consider vectors (sharp at any res, but file size would be higher by an order of magnitude;
-                  fine for most, but terrible UX for slow connections (rural, 'far-away cell tower' wifi) -->
-            <!-- TODO: Check alt tags -->
-            <a href="#"><img src="assets/img/social-facebook-17.png" alt="Button to CARA Facebook page"></a>
-            <a href="#"><img src="assets/img/social-instagram-17.png" alt="Button to CARA Instagram page"></a>
+            <!-- TODO: SVG icons would be better, but consider their licenses -->
+            <a href="#"><img src="assets/img/social-facebook-17.png" alt="Link to CARA Facebook page"></a>
+            <a href="#"><img src="assets/img/social-instagram-17.png" alt="Link to CARA Instagram page"></a>
         </div>
     </header>
 
     <div class="navbar-container">
         <nav class="navbar-content">
-            <!-- Extracted from PSD and touched up, I'd imagine it's best to use an SVG/vector graphic -->
+            <!-- Extracted from PSD and touched up, it'd be best to use an SVG if available -->
             <img src="assets/img/logo-navbar.png" alt="CARA logo">
             <a href="#">ABOUT US</a>
             <a href="#">MEMBERSHIP</a>
             <a href="#">MEMBER SUPPORT</a>
             <a href="#">MEMBERS</a>
             <a href="#">CONTACT</a>
-            <!-- TODO: Double-check validity of heart unicode (cross-ref w/ PSD) -->
-            <button class="navbar-button-donate">DONATE ♡</button>
+            <button class="navbar-button-donate">DONATE &#9825;</button>
         </nav>
     </div>
 
 
     <div class="flex-container">
-        <img class="hero-bg" src="assets/img/bg-hero.png" alt="">
+        <!-- To hide background overflow while ensuring any overflowed text can still be scrolled -->
+        <div class="hero-bg-container">
+            <img src="assets/img/bg-hero.png" alt="">
+        </div>
 
         <section class="hero-container">
             <p class="hero-title"><b>SUPPORTING</b> RESCUES. <b>SAVING</b> LIVES.</p>
@@ -61,7 +60,7 @@
 
     <div class="card-container">
         <section class="card card-members">
-            <img class="card-icon" src="assets/img/icon-members.png" alt="">
+            <img class="card-icon" src="assets/img/icon-card-members.png" alt="">
             <div class="card-title">
                 <p class="card-title-primary">CARA MEMBERS</p>
                 <p class="card-title-secondary">AN EXTRAORDINARY AND DIVERSE COMMUNITY</p>
@@ -73,7 +72,7 @@
         </section>
 
         <section class="card card-grants">
-            <img class="card-icon" src="assets/img/icon-grants.png" alt="">
+            <img class="card-icon" src="assets/img/icon-card-grants.png" alt="">
             <div class="card-title">
                 <p class="card-title-primary">CARA GRANTS</p>
                 <p class="card-title-secondary">A FORCE BEHIND IMPACTFUL ANIMAL WELFARE INITIATIVES</p>

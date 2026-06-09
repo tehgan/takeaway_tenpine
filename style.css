@@ -22,8 +22,7 @@
 }
 
 
-/* TODO: Check if these properties should be included under body rather than wildcard */
-* {
+body {
     /* 1200px (desktop PSD) / 16px (1rem default) = 75 */
     --max-content-width: 75rem;
 
@@ -36,9 +35,7 @@
     margin: 0;
 
     font-family: "Montserrat", sans-serif;
-}
 
-body {
     min-width: 30rem;
 }
 
@@ -173,17 +170,17 @@ footer {
     gap: 2rem;
 }
 
-/* Toggled in JS via an Intersection Observer, based on <header> visibility */
-.navbar-stickifier {
-    position: fixed;
-    top: 0;
-}
-
 .navbar-content a:hover {
     color: #b81d21;
     text-decoration: underline;
     text-decoration-thickness: 0.2rem;
     text-underline-offset: 0.3rem;
+}
+
+/* Toggled in JS via an Intersection Observer, based on <header> visibility */
+.navbar-stickifier {
+    position: fixed;
+    top: 0;
 }
 
 .navbar-button-donate {
@@ -212,12 +209,20 @@ footer {
 /**************
  *    HERO    *
  **************/
-/* TODO: Look into how I can crop image if it scales beyond viewport */
-.hero-bg {
+.hero-bg-container {
+    width: 100vw;
+    height: auto;
+
     position: absolute;
     z-index: -1;
     /* 1.8rem header + 7rem navbar */
     top: 8.8rem;
+    overflow: hidden;
+
+    /* Centres bg-hero if it overflowed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .hero-container {
@@ -360,11 +365,11 @@ footer {
 }
 
 .card-members {
-    background-image: url("assets/img/card-members.png");
+    background-image: url("assets/img/bg-card-members.png");
 }
 
 .card-grants {
-    background-image: url("assets/img/card-grants.png");
+    background-image: url("assets/img/bg-card-grants.png");
 }
 
 .card-icon {
@@ -403,7 +408,6 @@ footer {
     font-size: var(--fs-lg);
     text-align: center;
     /* Prevents underline pseudo-element from overlapping other text */
-    /* TODO: Can I somehow include the pseudo-element in the calculation of line height, so that it's more 'even' when wrapped? */
     line-height: 1.5em;
 }
 
@@ -416,7 +420,7 @@ footer {
 .supporter-logo-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     gap: 3rem;
 }
 
