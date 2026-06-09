@@ -191,6 +191,11 @@ footer {
     gap: 1rem;
 }
 
+.navbar-logo {
+    height: 100%;
+    width: auto;
+}
+
 .navbar-link {
     padding: 0.5rem;
 }
@@ -463,6 +468,8 @@ footer {
 
         /* In case of wrapping */
         --el-height-header: 2rem;
+
+        --el-height-navbar: 5rem;
     }
 
     .hero-container {
