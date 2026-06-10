@@ -239,7 +239,8 @@ footer {
 /**************
  *    HERO    *
  **************/
-/* TODO: Left side of image clips if under min-width (Firefox ESR) */
+/* Left side of image clips if under min-width (Firefox ESR)
+    Shouldn't be an issue in actual usage as min-width is very small (320px, mobile baseline) */
 .hero-bg-container {
     width: 100vw;
     height: auto;
@@ -469,6 +470,7 @@ footer {
         /* In case of wrapping */
         --el-height-header: 2rem;
 
+        /* Narrower navbar for mobile, closer to mobile PSD (84px/5.25rem measured) */
         --el-height-navbar: 5rem;
     }
 
